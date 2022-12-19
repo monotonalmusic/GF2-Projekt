@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div class="slider">
+            <input type="range" min="10" max="32" value="16" oninput="rangeValue.innerText = this.value">
+            <p id="rangeValue"> 16 </p>
+        </div>
+        <button id="button" onclick="check()">
+            Generate Password
+        </button>           
+        <div id="checkboxes">
+            <div class="checkboxes">
+                <lable for="checkbox_1">
+                <input type="checkbox" id="checkbox_1" name="checkbox_1" onchange="changeValue(1, letterArray)" value=""> Lowercase letters
+                </lable>
+            </div>
+            <div class="checkboxes">
+                <lable for="checkbox_2">
+                <input type="checkbox" id="checkbox_2" name="checkbox_2" onchange="changeValue(2, bigLetterArray)" value=""> Uppercase letters
+                </lable>
+            </div>
+            <div class="checkboxes">
+                <lable for="checkbox_3">
+                <input type="checkbox" id="checkbox_3" name="checkbox_3" onchange="changeValue(3, numberArray)" value=""> Numbers
+                </lable>
+            </div>
+            <div class="checkboxes">
+                <lable for="checkbox_4">
+                <input type="checkbox" id="checkbox_4" name="checkbox_4" onchange="changeValue(4, signsArray)" value=""> Signs
+                </lable>
+            </div>
+        </div>
+        <div>
+            <input id="generated-password">
+        </div>
+    </div>
+</body>
+
+</html>
+
+

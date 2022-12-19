@@ -1,0 +1,10 @@
+button {
+    height: 20px;
+    width: 150px;
+}
+
+
+#generated-password {
+    font-size: 1.3em;
+    padding: .3em;
+}
