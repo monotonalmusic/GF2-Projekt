@@ -10,12 +10,22 @@ function createGrid (rows, cols, container, bangonummer) {
     //document.getElementById("container").innerHTML = " "; //resets container div, making them not overlap infinitely 
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
-    for (i = 0; i < (rows * cols); i++) {
+    for(i = 0; i<cols; i++) {
+        for(j = 0; j<rows; j++) {
+            let cell = document.createElement("div");
+            cell.id = "cell-" + bangonummer + "x" + i + "x" + j;
+            cell.classList = 'cell';
+            container.appendChild(cell);
+            document.getElementById(cell.id).innerHTML = cell.id;
+        }
+    }
+    
+/*     for (i = 0; i < (rows * cols); i++) {
         let cell = document.createElement("div");
         cell.id = "cell-" + bangonummer + "x" + i;
         cell.classList = 'cell';
         container.appendChild(cell);   
-    }
+    } */
 };
 
 //Laver 3 plader
@@ -28,14 +38,14 @@ function threeTimes() {
     createGrid(3, 9, container_3, 3);
 }
 
-/* function threeTimes2(seed) {
-    generateNumbers(seed, container1)
-    generateNumbers(seed, container2)
-    generateNumbers(seed, container3)
-} */
+ function threeTimes2(seed) {
+    generateNumbers(seed, 1)
+    generateNumbers(seed, 2)
+    generateNumbers(seed, 3)
+} 
 
 
-function generateNumbers(seed) {
+function generateNumbers(seed, container) {
     let arrayOfBingoNumbers = [];
     let firstColumnAmount = 0;
     let secondColumnAmount = 3;
@@ -48,55 +58,45 @@ function generateNumbers(seed) {
     let ninthColumnAmount = 24;
     loop:
     for(let i = 0; arrayOfBingoNumbers.length < 15; i++) {
-        let bingoNumber = new Math.seedrandom(seed + i);
-        // console.log(bingoNumber())
+        let bingoNumber = new Math.seedrandom(seed + i + "x" + container*97);
         let bingoNumber2 = bingoNumber() * 90;
-        //console.log(bingoNumber2);
         bingoNumber2 = Math.round(bingoNumber2);
+
         if(arrayOfBingoNumbers.indexOf(bingoNumber2) === -1 && 1 <= bingoNumber2 && bingoNumber2 <= 90) {
             if(bingoNumber2 >= 1 && bingoNumber2 <= 9 && firstColumnAmount < 3) {
                 arrayOfBingoNumbers.push(bingoNumber2);
-                document.getElementById("cell-1x"+ firstColumnAmount).innerHTML = bingoNumber2;
                 firstColumnAmount++;
             }
             else if (bingoNumber2 >= 10 && bingoNumber2 <= 19 && secondColumnAmount < 6) {
                 arrayOfBingoNumbers.push(bingoNumber2);
-                document.getElementById("cell-1x"+ secondColumnAmount).innerHTML = bingoNumber2;
                 secondColumnAmount++;
             }
             else if (bingoNumber2 >= 20 && bingoNumber2 <= 29 && thirdColumnAmount < 9) {
                 arrayOfBingoNumbers.push(bingoNumber2);
-                document.getElementById("cell-1x"+ thirdColumnAmount).innerHTML = bingoNumber2;
                 thirdColumnAmount++;
             }
             else if (bingoNumber2 >= 30 && bingoNumber2 <= 39 && fourthColumnAmount < 12) {
                 arrayOfBingoNumbers.push(bingoNumber2);
-                document.getElementById("cell-1x"+ fourthColumnAmount).innerHTML = bingoNumber2;
                 fourthColumnAmount++;
             }
             else if (bingoNumber2 >= 40 && bingoNumber2 <= 49 && fifthColumnAmount < 15) {
                 arrayOfBingoNumbers.push(bingoNumber2);
-                document.getElementById("cell-1x"+ fifthColumnAmount).innerHTML = bingoNumber2;
                 fifthColumnAmount++;
             }
             else if (bingoNumber2 >= 50 && bingoNumber2 <= 59 && sixthColumnAmount < 18) {
                 arrayOfBingoNumbers.push(bingoNumber2);
-                document.getElementById("cell-1x"+ sixthColumnAmount).innerHTML = bingoNumber2;
                 sixthColumnAmount++;
             }
             else if (bingoNumber2 >= 60 && bingoNumber2 <= 69 && seventhColumnAmount < 21) {
                 arrayOfBingoNumbers.push(bingoNumber2);
-                document.getElementById("cell-1x"+ seventhColumnAmount).innerHTML = bingoNumber2;
                 seventhColumnAmount++;
             }
             else if (bingoNumber2 >= 70 && bingoNumber2 <= 79 && eighthColumnAmount < 24) {
                 arrayOfBingoNumbers.push(bingoNumber2);
-                document.getElementById("cell-1x"+ eighthColumnAmount).innerHTML = bingoNumber2;
                 eighthColumnAmount++;
             }
             else if (bingoNumber2 >= 80 && bingoNumber2 <= 90 && ninthColumnAmount < 27) {
                 arrayOfBingoNumbers.push(bingoNumber2);
-                document.getElementById("cell-1x"+ ninthColumnAmount).innerHTML = bingoNumber2;
                 ninthColumnAmount++;
             }         
         }
@@ -105,14 +105,93 @@ function generateNumbers(seed) {
     } 
     arrayOfBingoNumbers.sort(function(a, b) {return a-b});
     console.log(arrayOfBingoNumbers);
+    maxFive(arrayOfBingoNumbers, container);
 
 
 }
 
 
-// function findNumberInArray(lower, upper, array) {
-//     let between = array.filter(function(item) {
-//         return (item > lower && item < upper);
-//     })
-//     return between
-// }
+ function findNumberInArray(lower, upper, array) {
+     let between = array.filter(function(item) {
+         return (item >= lower && item <= upper);
+     })
+     return between
+ }
+
+
+
+function maxFive(array, container) {
+    let emptyArray = [];
+    for(let i = 0, lower = 0, upper = 9; i<8; i++, lower +=10, upper+=10) {
+        emptyArray.push(findNumberInArray(lower, upper, array));
+    }
+    emptyArray.push(findNumberInArray(80, 90, array));
+    emptyArray.sort(function(a, b) {return b.length - a.length});
+    console.log(emptyArray);
+    let rowNum = 2;
+        for(let j = 0; j<=4; j++) {
+            let lastItem = emptyArray[j].pop();
+            
+            for(let k = 10, l = 0, m = 0; m<8; k+=10, l+=10, m++) {  
+                if(lastItem < k && lastItem >= l) {
+                    document.getElementById("cell-" + container + "x" + m + "x" + rowNum).innerHTML = lastItem;
+                    
+                    
+                }
+            
+                else if(lastItem <= 90 && lastItem >= 80) {
+                    document.getElementById("cell-" + container + "x" + 8 + "x" + rowNum).innerHTML = lastItem;
+                        
+                }
+                
+            }
+            console.log(emptyArray)
+            
+        }
+        emptyArray.sort(function(a, b) {return b.length - a.length});
+        rowNum = 1;
+        for(let j = 0; j<=4; j++) {
+            let lastItem = emptyArray[j].pop();
+            
+            for(let k = 10, l = 0, m = 0; m<8; k+=10, l+=10, m++) {  
+                if(lastItem < k && lastItem >= l) {
+                    document.getElementById("cell-" + container + "x" + m + "x" + rowNum).innerHTML = lastItem;
+                    
+                    
+                }
+            
+                else if(lastItem <= 90 && lastItem >= 80) {
+                    document.getElementById("cell-" + container + "x" + 8 + "x" + rowNum).innerHTML = lastItem;
+                        
+                }
+                
+            }
+            console.log(emptyArray)
+            
+        }
+        emptyArray.sort(function(a, b) {return b.length - a.length});
+        rowNum = 0;
+        for(let j = 0; j<=4; j++) {
+            let lastItem = emptyArray[j].pop();
+            
+            for(let k = 10, l = 0, m = 0; m<8; k+=10, l+=10, m++) {  
+                if(lastItem < k && lastItem >= l) {
+                    document.getElementById("cell-" + container + "x" + m + "x" + rowNum).innerHTML = lastItem;
+                    
+                    
+                }
+            
+                else if(lastItem <= 90 && lastItem >= 80) {
+                    document.getElementById("cell-" + container + "x" + 8 + "x" + rowNum).innerHTML = lastItem;
+                        
+                }
+                
+            }
+            console.log(emptyArray)
+        }
+    
+}
+
+
+
+
