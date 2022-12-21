@@ -11,7 +11,8 @@ body {
     gap: 10rem;
 }
 .cell {
-    font-size: 2rem;
+    font-size: 10rem;
+    text-align: center;
     height: 11rem;
     width: 11rem;
     border: .2rem solid black;

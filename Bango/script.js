@@ -1,34 +1,27 @@
 
-
 const container_1 = document.getElementById('container_1');
 const container_2 = document.getElementById('container_2');
 const container_3 = document.getElementById('container_3');
 
-
-//Opstiller vores bingoplader som divs 
+//Opstiller vores bingoplader som divs fordelt i row og collums 
 function createGrid (rows, cols, container, bangonummer) {
     //document.getElementById("container").innerHTML = " "; //resets container div, making them not overlap infinitely 
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
+    //generer cells (divs) indenfor columns (outer loop) og rows (inner loop)
     for(i = 0; i<cols; i++) {
         for(j = 0; j<rows; j++) {
             let cell = document.createElement("div");
+            //bangonummer = plade, i = column, j = row
             cell.id = "cell-" + bangonummer + "x" + i + "x" + j;
             cell.classList = 'cell';
             container.appendChild(cell);
-            document.getElementById(cell.id).innerHTML = cell.id;
+            // document.getElementById(cell.id).innerHTML = cell.id;
         }
     }
-    
-/*     for (i = 0; i < (rows * cols); i++) {
-        let cell = document.createElement("div");
-        cell.id = "cell-" + bangonummer + "x" + i;
-        cell.classList = 'cell';
-        container.appendChild(cell);   
-    } */
 };
 
-//Laver 3 plader
+//Generer 3 plader
 function threeTimes() {
     document.getElementById("container_1").innerHTML = " ";
     document.getElementById("container_2").innerHTML = " ";
@@ -37,14 +30,17 @@ function threeTimes() {
     createGrid(3, 9, container_2, 2);
     createGrid(3, 9, container_3, 3);
 }
-
+//Generer tallene paa de 3 bankoplader ved input af seed
  function threeTimes2(seed) {
+    let inputWord = document.getElementById('inputline').value
+    seed = inputWord
+    threeTimes();
     generateNumbers(seed, 1)
     generateNumbers(seed, 2)
     generateNumbers(seed, 3)
 } 
 
-
+//Generer 15 tal, og kalder maxFive 
 function generateNumbers(seed, container) {
     let arrayOfBingoNumbers = [];
     let firstColumnAmount = 0;
@@ -61,8 +57,9 @@ function generateNumbers(seed, container) {
         let bingoNumber = new Math.seedrandom(seed + i + "x" + container*97);
         let bingoNumber2 = bingoNumber() * 90;
         bingoNumber2 = Math.round(bingoNumber2);
-
         if(arrayOfBingoNumbers.indexOf(bingoNumber2) === -1 && 1 <= bingoNumber2 && bingoNumber2 <= 90) {
+            
+            
             if(bingoNumber2 >= 1 && bingoNumber2 <= 9 && firstColumnAmount < 3) {
                 arrayOfBingoNumbers.push(bingoNumber2);
                 firstColumnAmount++;
@@ -110,7 +107,7 @@ function generateNumbers(seed, container) {
 
 }
 
-
+//filters array to find values between given lower value and upper value
  function findNumberInArray(lower, upper, array) {
      let between = array.filter(function(item) {
          return (item >= lower && item <= upper);
@@ -119,7 +116,7 @@ function generateNumbers(seed, container) {
  }
 
 
-
+//begraenser antal tal i row til max 5
 function maxFive(array, container) {
     let emptyArray = [];
     for(let i = 0, lower = 0, upper = 9; i<8; i++, lower +=10, upper+=10) {
