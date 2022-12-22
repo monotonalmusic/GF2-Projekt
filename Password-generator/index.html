@@ -7,39 +7,64 @@
     <title>Password Generator</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/forside/style.css">
+    <script src="/forside/script.js" defer></script>
 </head>
 <body>
-    <div id="container">
-        <div class="slider">
-            <input type="range" min="10" max="32" value="16" oninput="rangeValue.innerText = this.value">
-            <p id="rangeValue"> 16 </p>
+    <header id="myHeader" class="alsoMyHeader">
+        <nav class="nav">
+          <a href="/" class="logo">
+            Firma A/S
+          </a>
+  
+          <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+  
+          <div class="nav__link hide">
+            <a href="#" onclick="change_page_forside()">Forside</a>
+            <a href="#" onclick="change_page_banko()">Banko</a>
+            <a href="#" onclick="change_page_generator()">Password generator</a>
+            <a href="#" onclick="change_page_reset()">Password reset</a>
+          </div>
+        </nav>
+    </header>
+    <div id="container15">
+        <div id="top">
+            <div class="slider">
+                <p>Antal karakter:</p>
+                <input type="range" class="theSlider" min="10" max="32" value="16" oninput="rangeValue.innerText = this.value">
+                <p id="rangeValue"> 16 </p>
+            </div>
+            <div id="checkboxes">
+                <div class="checkboxes">
+                    <lable for="checkbox_1">
+                    <input type="checkbox" id="checkbox_1" name="checkbox_1" onchange="changeValue(1, letterArray)" value=""> Lowercase
+                    </lable>
+                </div>
+                <div class="checkboxes">
+                    <lable for="checkbox_2">
+                    <input type="checkbox" id="checkbox_2" name="checkbox_2" onchange="changeValue(2, bigLetterArray)" value=""> Uppercase
+                    </lable>
+                </div>
+                <div class="checkboxes">
+                    <lable for="checkbox_3">
+                    <input type="checkbox" id="checkbox_3" name="checkbox_3" onchange="changeValue(3, numberArray)" value=""> Numbers
+                    </lable>
+                </div>
+                <div class="checkboxes">
+                    <lable for="checkbox_4">
+                    <input type="checkbox" id="checkbox_4" name="checkbox_4" onchange="changeValue(4, signsArray)" value=""> Signs
+                    </lable>
+                </div>
+            </div>
         </div>
-        <button id="button" onclick="check()">
-            Generate Password
-        </button>           
-        <div id="checkboxes">
-            <div class="checkboxes">
-                <lable for="checkbox_1">
-                <input type="checkbox" id="checkbox_1" name="checkbox_1" onchange="changeValue(1, letterArray)" value=""> Lowercase letters
-                </lable>
-            </div>
-            <div class="checkboxes">
-                <lable for="checkbox_2">
-                <input type="checkbox" id="checkbox_2" name="checkbox_2" onchange="changeValue(2, bigLetterArray)" value=""> Uppercase letters
-                </lable>
-            </div>
-            <div class="checkboxes">
-                <lable for="checkbox_3">
-                <input type="checkbox" id="checkbox_3" name="checkbox_3" onchange="changeValue(3, numberArray)" value=""> Numbers
-                </lable>
-            </div>
-            <div class="checkboxes">
-                <lable for="checkbox_4">
-                <input type="checkbox" id="checkbox_4" name="checkbox_4" onchange="changeValue(4, signsArray)" value=""> Signs
-                </lable>
-            </div>
-        </div>
-        <div>
+        <div id="generatebutton">
+            <button id="button" onclick="check()">
+                Generate Password
+            </button>  
             <input id="generated-password">
         </div>
     </div>

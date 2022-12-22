@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password reset</title>
     <link rel="stylesheet" href="style.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
     <script src="script.js" defer></script>
-    <script src="/Forside/script.js"> </script>
-    <link rel="stylesheet" href="/Forside/style.css">
-    <title>Banko</title>
+    <link rel="stylesheet" href="/forside/style.css">
+    <script src="/forside/script.js" defer></script>
 </head>
-<body onload="threeTimes()">
-
+<body>
+    <div id="container">
     <header id="myHeader" class="alsoMyHeader">
         <nav class="nav">
           <a href="/" class="logo">
@@ -33,20 +32,14 @@
           </div>
         </nav>
       </header>
-    <div class="inputbutton">
-    <input type="text" id="inputline" placeholder="Insert ID">
-    <button id="create" onclick="threeTimes2()"> Generate </button>
+    
+    
+      
     </div>
-    <div id="bigcontainer">
-        <div id="container_1">
-
-        </div>
-        <div id="container_2">
-
-        </div>
-        <div id="container_3">
-
+    <div id="password-reseter">
+    <input id="ID" placeholder="ENTER ID">
+    <button id="Reset" onclick="reset()"> Reset Password </button>
     </div>
-</div>  
+    
 </body>
 </html>

@@ -1,10 +1,56 @@
 button {
-    height: 20px;
-    width: 150px;
+    font-size: 1.3em;
+    padding: 1em;
 }
 
 
 #generated-password {
     font-size: 1.3em;
-    padding: .3em;
+    padding: 1em;
+    margin-left: 1vw;
+}
+
+#generatebutton {
+    gap: 3rem;
+}
+
+#top {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.theSlider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+}
+
+.theSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 25px;
+    background: black;
+    cursor: pointer;
+  }
+
+#container15 {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 3rem;
 }

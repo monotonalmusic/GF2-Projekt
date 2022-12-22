@@ -1,0 +1,12 @@
+html,
+body {
+    font-size: 10px;
+}
+
+#password-reseter {
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
