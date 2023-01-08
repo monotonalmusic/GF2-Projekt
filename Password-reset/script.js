@@ -9,22 +9,37 @@ let people  = [
     },
     {
         ID: '110011',
-        first_name: 'Hans',
-        last_name: 'Hansen',
-        email: 'hans@gmail.com'
+        first_name: 'Betty',
+        last_name: 'Robertson',
+        email: 'betty@gmail.com'
     },
     {
         ID: '121110',
-        first_name: 'Hanna',
-        last_name: 'Rasmussen',
-        email: 'hanna@gmail.com'
+        first_name: 'Bob',
+        last_name: 'Italiano',
+        email: 'bob@gmail.com'
     },
     {
         ID: '101112',
-        first_name: 'Kirsten',
-        last_name: 'Berg',
-        email: 'kirsten@gmail.com'
+        first_name: 'Kevin',
+        last_name: 'Nielsen',
+        email: 'kevin@gmail.com'
+    },
+    {
+        ID: '101011',
+        first_name: 'Mikkel',
+        last_name: 'Asmussen',
+        email: 'mikkel@gmail.com'
+
+    },
+    {
+        ID: '101012',
+        first_name: 'Gabriel',
+        last_name: 'Hughes',
+        email: 'gabriel@gmail.com'
+
     }
+
 
 ]
 
