@@ -58,6 +58,7 @@ function generateNumbers(seed, container) {
         let bingoNumber2 = bingoNumber() * 90; //Ganger med 90 fordi er 90 vilkårlige tal på en bangoplade
         bingoNumber2 = Math.round(bingoNumber2);
                 for(let j = 0, k=10, l=0; l < 8; j+=10, k+=10, l++) {
+                    //Så vi ikke kan få 0, kører max til 90
                     if(1 <= bingoNumber2 && bingoNumber2 <= 90) {
                         //Condition 1: Lower limit / start tal, Condition 2: Upper limit / slut tal, Condition 3: Max tre tal pr column, Condition 4 og 5: Tjekker om tallet er unikt 
                         if(bingoNumber2 >= j && bingoNumber2 < k && arrayOfBingoNumbers[l].length < 3 && arrayOfBingoNumbers[l][0] != bingoNumber2 && arrayOfBingoNumbers[l][1] != bingoNumber2) {

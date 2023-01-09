@@ -1,7 +1,3 @@
-html,
-body {
-    font-size: 10px;
-}
 
 #password-reseter {
     gap: 2rem;
@@ -10,3 +6,14 @@ body {
     align-items: center;
 }
 
+button {
+    font-size: 1.5rem;
+    height: 3rem;
+    width: 15rem;
+}
+
+input {
+    font-size: 1.5rem;
+    height: 3rem;
+    width: 15rem;
+}
