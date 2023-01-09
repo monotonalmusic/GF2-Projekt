@@ -9,33 +9,32 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="container">
-    
-        <header id="myHeader" class="alsoMyHeader">
-          <nav class="nav">
-            <a href="/" class="logo">
-              Firma A/S
-            </a>
-    
-            <div class="hamburger">
-              <span class="line"></span>
-              <span class="line"></span>
-              <span class="line"></span>
-            </div>
-    
-            <div class="nav__link hide">
-              <a href="#" onclick="change_page_forside()">Forside</a>
-              <a href="#" onclick="change_page_banko()">Banko</a>
-              <a href="#" onclick="change_page_generator()">Password generator</a>
-              <a href="#" onclick="change_page_reset()">Password reset</a>
-            </div>
-          </nav>
-        </header> 
-    </div>
-    <div id="body">
-      <h1>Eksamens projekt: GF2</h1>
-      <img src="/Forside/Images/IMG_1293 Large.jpeg" id="pic">
-      <p id="navn">Lavet af Mikkel, Kevin, og Gabriel</p>
-    </div>
+<div id="container">
+  <header id="myHeader" class="alsoMyHeader">
+    <nav class="nav">
+      <a href="#" class="logo" onclick="change_page_forside()">
+        Firma A/S
+      </a>
+
+      <div class="hamburger">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+
+      <div class="nav__link hide">
+        <a href="#" onclick="change_page_forside()">Forside</a>
+        <a href="#" onclick="change_page_banko()">Banko</a>
+        <a href="#" onclick="change_page_generator()">Password generator</a>
+        <a href="#" onclick="change_page_reset()">Password reset</a>
+      </div>
+    </nav>
+  </header> 
+</div>
+<div id="body">
+  <h1>Eksamens projekt: GF2</h1>
+  <img src="./Images/IMG_1293 Large.jpeg" id="pic">
+  <p id="navn">Lavet af Mikkel, Kevin, og Gabriel</p>
+</div>
 </body>
 </html>

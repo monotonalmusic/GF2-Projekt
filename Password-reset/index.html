@@ -11,35 +11,31 @@
     <script src="/forside/script.js" defer></script>
 </head>
 <body>
-    <div id="container">
-    <header id="myHeader" class="alsoMyHeader">
-        <nav class="nav">
-          <a href="/" class="logo">
-            Firma A/S
-          </a>
-  
-          <div class="hamburger">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-          </div>
-  
-          <div class="nav__link hide">
-            <a href="#" onclick="change_page_forside()">Forside</a>
-            <a href="#" onclick="change_page_banko()">Banko</a>
-            <a href="#" onclick="change_page_generator()">Password generator</a>
-            <a href="#" onclick="change_page_reset()">Password reset</a>
-          </div>
-        </nav>
-      </header>
-    
-    
-      
-    </div>
-    <div id="password-reseter">
-    <input id="ID" placeholder="ENTER ID">
-    <button id="Reset" onclick="reset()"> Reset Password </button>
-    </div>
-    
+<div id="container">
+  <header id="myHeader" class="alsoMyHeader">
+      <nav class="nav">
+        <a href="#" class="logo" onclick="change_page_forside()">
+          Firma A/S
+        </a>
+
+        <div class="hamburger">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+
+        <div class="nav__link hide">
+          <a href="#" onclick="change_page_forside()">Forside</a>
+          <a href="#" onclick="change_page_banko()">Banko</a>
+          <a href="#" onclick="change_page_generator()">Password generator</a>
+          <a href="#" onclick="change_page_reset()">Password reset</a>
+        </div>
+      </nav>
+    </header>
+</div>
+<div id="password-reseter">
+  <input id="ID" placeholder="ENTER ID">
+  <button id="Reset" onclick="reset()"> Reset Password </button>
+</div>
 </body>
 </html>
