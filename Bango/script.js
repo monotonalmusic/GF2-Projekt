@@ -79,8 +79,8 @@ function generateNumbers(seed, container) {
 
 //begrænser antal tal i row til max 5, og så sætter tal på plads
 function maxFive(array, container) {
-    for(let rowNum = 2; rowNum >= 0; rowNum--) { //looper 3 gange, for hver af vores 3 plader
-        array.sort(function(a, b) {return b.length - a.length});
+    for(let rowNum = 2; rowNum >= 0; rowNum--) { //looper 3 gange, for hver row i pladen
+        array.sort(function(a, b) {return b.length - a.length}); //sorter arrays fra største til mindste inden de sættes på plads, så de kommer orgentligt i gennem kommende loops.. hvis vi fjerner, el halvdelen ikke med
         for(let j = 0; j<=4; j++) { //looper fem gange, fordi skal være 5 tal i hvert row
             let lastItem = array[j].pop();
             for(let k = 10, l = 0, m = 0; m<8; k+=10, l+=10, m++) {    //l er lower limit eller start tal, k er upper limit eller slut tal, m er antal loops og column nummer
@@ -104,7 +104,7 @@ function findNumberInArray(lower, upper, array) {
     return between
 }
 
-//lav 2D array til 1D array og sort fra laveste til højeste tal, og så laver til 1D array igen
+//lav 2D array til 1D array og sort fra laveste til højeste tal, og så laver til 2D array igen
 function makeNormalArray(array){
     let newArray = [].concat(...array);
     newArray.sort(function(a, b){return a-b});

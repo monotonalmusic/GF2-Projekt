@@ -17,7 +17,7 @@ function generatePassword(letterString, bigLetterString, numberString, signsStri
     let passwordGenerated = ""
 
     //Hvis mindst en checkbox er checked kører denne kode
-    if (smallerArray.length > 4) {
+    if (smallerArray.length > 4) { //skal være over 4, fordi hvis det er 4 eller under er det fordi fik 4 tom pladser tilbage
         for (let i = 1; i <= slider; i++) {
             passwordGenerated += smallerArray[Math.round(Math.random() * (smallerArray.length - 1))];
         }

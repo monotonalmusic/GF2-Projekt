@@ -43,9 +43,9 @@ let people  = [
 
 ]
 
-//alerter details af givet array i en alert
-function returnDetails(array) {
-    alert (`Thank you ${array.first_name} ${array.last_name}, ID ${array.ID}, a link to reset your password will be sent to ${array.email}.`)
+//alerter details af givet object i en alert
+function returnDetails(obj) {
+    alert (`Thank you ${obj.first_name} ${obj.last_name}, ID ${obj.ID}, a link to reset your password will be sent to ${obj.email}.`)
     return
 }
 
