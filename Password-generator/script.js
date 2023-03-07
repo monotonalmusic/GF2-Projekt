@@ -19,7 +19,7 @@ function generatePassword(letterString, bigLetterString, numberString, signsStri
     //Hvis mindst en checkbox er checked kører denne kode
     if (smallerArray.length > 4) { //skal være over 4, fordi hvis det er 4 eller under er det fordi fik 4 tom pladser tilbage
         for (let i = 1; i <= slider; i++) {
-            passwordGenerated += smallerArray[Math.round(Math.random() * (smallerArray.length - 1))];
+            passwordGenerated += smallerArray[Math.round(Math.random() * (smallerArray.length - 1))]; //smallerArray.length fordi man vil ikke vælge en array plads højer en array størrelsen
         }
         updatePassword(passwordGenerated)
         console.log(passwordGenerated);
@@ -57,10 +57,10 @@ function check () {
 }
 //Tjekker om vores checkbox er aktiv
   function changeValue(num, array) {
-    if(document.getElementById("checkbox_" + num).checked == true) {
+    if (document.getElementById("checkbox_" + num).checked) {
         document.getElementById("checkbox_" + num).value = array;
     }
-    else if(document.getElementById("checkbox_" + num).checked == false) {
+    else {
         document.getElementById("checkbox_" + num).value = null;
     }
   }
